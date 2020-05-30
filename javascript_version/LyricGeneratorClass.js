@@ -99,7 +99,7 @@ export class LyricGeneratorClass  {
 		** Cylce each element in the array, create wrapper div for each, and append
 		** form
 		*/
-		inputArray.forEach(function(key, value){
+		inputArray.forEach((key, value) => {
 			let inputContainer = document.createElement('div');
 			inputContainer.setAttribute('class', 'form-element');
 
@@ -149,9 +149,10 @@ export class LyricGeneratorClass  {
 		// Cycle each index in the array
 		numbersArr.forEach((index, value) => {
 
+				// declare a paragragh element to append to document
+				const para = document.createElement('p');
+
 				if(index >= 1){
-					// declare a paragragh element to append to document
-					let para = document.createElement('p');
 
 					// Generate first, two lines of the sequence
 					for(let x = 0; x < 2; x++){
@@ -166,7 +167,7 @@ export class LyricGeneratorClass  {
 					para.innerHTML += `And if one ${this.values.colour} 
 					${this.values.objectType} should accidently ${this.values.action},<br> there'll be ${ numberString[index-1]} 
 					${this.values.colour} ${this.values.objectType}${index-1 == 1 ? " " : "s "} 
-					${this.values.behaviour} on the ${this.values.scene} <br>`;
+					${this.values.behaviour} on the ${this.values.scene}. <br>`;
 
 					outputElement.appendChild(para);
 			}

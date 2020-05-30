@@ -25,7 +25,7 @@ let scene = document.querySelector('#scene');
 let contentContainer = document.querySelector('#lyricsContainer');
 
 // assign even listener for clicking the button
-genBtn.addEventListener('click', function(event){
+genBtn.addEventListener('click', (event) => {
 	event.preventDefault(); 
 
 	//wipe all content previously assigned (if any exists)
