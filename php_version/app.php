@@ -10,7 +10,8 @@ function generateLyrics(
 	$colour = 'green', 
 	$objectType = 'bottle', 
 	$behaviour = 'hanging' , 
-	$scene ='wall'
+	$scene ='wall',
+	$action = "fall"
 ) {
 
 	// validating arguments and assigning some default values if values outside of range.
@@ -83,7 +84,7 @@ function generateLyrics(
 				echo 	$numberString[$num] . ' ' . $colour . ' ' . $objectType. (($num) == 1 ? ' ' : 's ') . 
 						$behaviour . ' on the ' . $scene . ', <br>'; 
 			}
-				echo 	'And if one '. $colour . ' ' . $objectType . ' should accidently fall, <br>' . 'There\'ll be ' . 
+				echo 	'And if one '. $colour . ' ' . $objectType . ' should accidently '. $action .', <br>' . 'There\'ll be ' . 
 						($num - 1 <= 0 ? strtolower($numberString[$num-1]) : strtolower($numberString[$num-1])) . 
 						' ' . $colour . ' ' . $objectType . 
 						(($num-1) == 1 ? ' ' : 's ') . $behaviour . ' on the '. $scene. '.'; 
