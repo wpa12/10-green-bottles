@@ -7,9 +7,6 @@
 //load in the lyricGeneratorClass
 import { LyricGeneratorClass } from './LyricGeneratorClass.js'; 
 
-
-
-
 // create an instance of LyricGenertorClass Class
 var lyrics = new LyricGeneratorClass(); 
 
@@ -26,6 +23,7 @@ let behaviour = document.querySelector('#behaviour');
 let action = document.querySelector('#action');
 let scene = document.querySelector('#scene');
 let contentContainer = document.querySelector('#lyricsContainer');
+
 // assign even listener for clicking the button
 genBtn.addEventListener('click', function(event){
 	event.preventDefault(); 
