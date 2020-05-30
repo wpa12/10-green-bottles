@@ -75,7 +75,7 @@ export class LyricGeneratorClass  {
 
 					//continue with the rest of the lyrics
 					para.innerHTML += `And if one ${this.values.colour} 
-					${this.values.objectType} should accidently ${this.values.action},<br> they'll be ${ numberString[index-1]} 
+					${this.values.objectType} should accidently ${this.values.action},<br> there'll be ${ numberString[index-1]} 
 					${this.values.colour} ${this.values.objectType}${index-1 == 1 ? " " : "s "} 
 					${this.values.behaviour} on the ${this.values.scene} <br>`;
 
