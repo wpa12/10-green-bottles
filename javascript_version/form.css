@@ -1,0 +1,37 @@
+/* ELEMENT STYLES  */
+
+input {
+	padding:10px;
+	border:0;
+	border-bottom:1px solid gray;
+}
+
+input:focus, :hover {
+	outline: none;
+	border-bottom:2px solid #006a4e;
+	transition:.2s all ease-in-out;
+}
+
+button {
+	padding:10px;
+	padding-left:30px; 
+	padding-right:30px; 
+	background:#006a4e;
+	color:white;
+	cursor:pointer;
+	font-weight:700;
+}
+
+
+/* CLASS STYLES */
+
+.form-element {
+	margin:10px;
+}
+
+
+/* ID STYLES */
+
+#lyricsContainer {
+	padding:10px;
+}
