@@ -13,6 +13,9 @@ export class LyricGeneratorClass  {
 	// Declare a values property
 	values; 
 
+	/*
+	** method to generate output on index.html
+	*/
 	generateLyrics(number = 10, colour , objectType, behaviour , action, scene, element){
 
 		// Create instance of ValidatorClass Class
@@ -22,11 +25,98 @@ export class LyricGeneratorClass  {
 		this.values = val.validateFormValues(number, colour, objectType, behaviour, action, scene);
 
 		// call loadHTML() method
-		this.loadHTML(element);
+		this.loadOutputHTML(element);
 
 	}
 
-	loadHTML(outputElement){
+	/*
+	**	Method to render the form in index.html
+	*/
+	generateForm(){
+		//Form Element creations
+		let containerElement = document.createElement('div');
+		let form = document.createElement('form');
+		let formContainer = document.createElement('div');
+		let numberInput = document.createElement('input');
+		let colourInput = document.createElement('input');
+		let objectTypeInput = document.createElement('input');
+		let behaviourInput = document.createElement('input');
+		let sceneInput = document.createElement('input');
+		let actionInput = document.createElement('input');
+		let generateLyricsButton = document.createElement('button');
+		
+		//Lyrics output div
+		let lyricsOutput = document.createElement('div');
+		lyricsOutput.setAttribute('id', 'lyricsContainer');
+		
+		//Array to store form elements in.
+		let inputArray = [];
+
+		//Setting attributes of each element
+		containerElement.setAttribute('id', 'container');
+
+		formContainer.setAttribute('class', 'form');
+
+		numberInput.setAttribute('type', 'number');
+		numberInput.setAttribute('id', 'numberOfBottles');
+		numberInput.setAttribute('placeholder', 'Number of Objects');
+		numberInput.setAttribute('max', '10');
+		numberInput.setAttribute('autocomplete', 'off');
+
+		colourInput.setAttribute('type', 'text');				
+		colourInput.setAttribute('id', 'colour');
+		colourInput.setAttribute('placeholder', 'Colour of Objects');
+		colourInput.setAttribute('autocomplete', 'off');
+
+		objectTypeInput.setAttribute('type', 'text');
+		objectTypeInput.setAttribute('id', 'objectType');
+		objectTypeInput.setAttribute('placeholder', 'Object type (singular, not plural)');
+		objectTypeInput.setAttribute('autocomplete', 'off');	
+
+		behaviourInput.setAttribute('type', 'text');
+		behaviourInput.setAttribute('id', 'behaviour');
+		behaviourInput.setAttribute('placeholder', 'Behaviour (jumping, hanging, ...)');
+		behaviourInput.setAttribute('autocomplete', 'off');
+
+		sceneInput.setAttribute('type', 'text');
+		sceneInput.setAttribute('id', 'scene');
+		sceneInput.setAttribute('placeholder', 'Scene (Wall, Car, ...)');
+		sceneInput.setAttribute('autocomplete', 'off');
+
+		actionInput.setAttribute('type', 'text');
+		actionInput.setAttribute('id', 'action');
+		actionInput.setAttribute('placeholder', 'Action (fall, explode, ...)');
+		actionInput.setAttribute('autocomplete', 'off');
+
+		generateLyricsButton.setAttribute('id','generateBtn');
+		generateLyricsButton.innerText = "Generate Lyrics";
+
+
+		// Push each element with created attributes to the inputArray
+		inputArray.push(numberInput, colourInput, objectTypeInput, behaviourInput, sceneInput, actionInput, generateLyricsButton);
+
+		/*
+		** Cylce each element in the array, create wrapper div for each, and append
+		** form
+		*/
+		inputArray.forEach(function(key, value){
+			let inputContainer = document.createElement('div');
+			inputContainer.setAttribute('class', 'form-element');
+
+			inputContainer.appendChild(key);
+			formContainer.appendChild(inputContainer);
+		});
+
+
+		// Append form and elements to the DOM.
+		document.body.appendChild(containerElement);
+		document.body.appendChild(lyricsOutput);
+		containerElement.appendChild(form);
+		form.appendChild(formContainer);
+
+	}
+
+	loadOutputHTML(outputElement){
 		
 		// assign array to store string-number equivalent
 		let numberString = [
@@ -58,7 +148,6 @@ export class LyricGeneratorClass  {
 
 		// Cycle each index in the array
 		numbersArr.forEach((index, value) => {
-
 
 				if(index >= 1){
 					// declare a paragragh element to append to document
