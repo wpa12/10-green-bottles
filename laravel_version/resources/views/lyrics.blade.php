@@ -11,8 +11,6 @@
 									
 									@if($numbersArr >=1)
 
-										@if($numbersArr >=1)
-
 										@for($i = 0; $i < 2; $i++)
 											{{ $numberString[$numbersArr] .' '. $colour . ' '. Str::plural($objectType, $numbersArr) . ' ' . $behaviour . ' on a ' . $scene . ','}} <br>
 										@endfor
