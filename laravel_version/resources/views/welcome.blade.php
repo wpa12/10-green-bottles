@@ -25,10 +25,15 @@
 
                     <div class="row">
                         <div class=" col-md-12">
-                            <form action="/lyrics" method="post">
+                            <form action="{{ route('lyrics.generateLyrics') }}" method="post">
                                 @csrf
+                                {{ method_field('POST') }}
+
                                 <div class=" mt-3">
                                     <input type="number" class="p-2" name="number" placeholder="Number of Objects" autocomplete="off" >
+                                    @error('number')
+                                         <span class="alert alert-danger">{{ $message }} </span>
+                                     @enderror
                                 </div>
 
                                 <div class="form-element mt-3">

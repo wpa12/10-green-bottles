@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/lyrics', 'GenerateLyricsController@generateLyrics');
 Route::post('/lyrics', 'GenerateLyricsController@generateLyrics')->name('lyrics.generateLyrics');

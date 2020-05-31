@@ -11,18 +11,16 @@ class GenerateLyricsController extends Controller
 		$this->request = $request;
 	}
 
-
-
     public function generateLyrics() {
 
-    	$this->request->validate([
+    	$validator = $this->request->validate([
 
 			'number' => [
 				'nullable',
 				'integer',
-				'min:0',
-				'max:10',
+				'between: 0, 10',
 			],
+
 			'colour' => [
 				'nullable',
 				'string',
@@ -49,7 +47,6 @@ class GenerateLyricsController extends Controller
 			],
 
 		]);
-
 
     	$number	= ($this->request->number < 0) && ($this->request->number > 10) || (!is_numeric($this->request->number)) ? 10 : $this->request->number;
     	$colour = (isset($this->request->colour) && ($this->request->colour != null)) ? $this->request->colour : "green";
