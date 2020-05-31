@@ -15,6 +15,42 @@ class GenerateLyricsController extends Controller
 
     public function generateLyrics() {
 
+    	$this->request->validate([
+
+			'number' => [
+				'nullable',
+				'integer',
+				'min:0',
+				'max:10',
+			],
+			'colour' => [
+				'nullable',
+				'string',
+			],
+			
+			'objectType' => [
+				'nullable',
+				'string',
+			],
+
+			'behaviour' => [
+				'nullable',
+				'string',
+			],
+
+			'scene' => [
+				'nullable',
+				'string',
+			],
+
+			'action' => [
+				'nullable',
+				'string',
+			],
+
+		]);
+
+
     	$number	= ($this->request->number < 0) && ($this->request->number > 10) || (!is_numeric($this->request->number)) ? 10 : $this->request->number;
     	$colour = (isset($this->request->colour) && ($this->request->colour != null)) ? $this->request->colour : "green";
     	$objectType = (isset($this->request->objectType) && ($this->request->objectType != null)) ? $this->request->objectType : "bottle";
@@ -22,7 +58,6 @@ class GenerateLyricsController extends Controller
     	$scene = (isset($this->request->scene) && ($this->request->scene != null)) ? $this->request->scene : "wall";
     	$action = (isset($this->request->action) && ($this->request->action != null)) ? $this->request->action : "fall";
 
-    	// dd($number);
 
 		$numberString = array(
 			0 => 'No',
