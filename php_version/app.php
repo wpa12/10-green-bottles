@@ -40,7 +40,6 @@ function generateLyrics(
 		$scene = 'wall';
 	}
 
-
 	// Creating an array to store values from 0 -> 10, with the string equivalent of the number.
 	$numberString = array(
 		0 => 'No',

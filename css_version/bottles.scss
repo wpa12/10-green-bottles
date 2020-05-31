@@ -23,8 +23,6 @@ body {
 	// Container for the bottle row
 	.bottle-container {
 		display:block;
-		position:relative;
-		top:190px;
 		z-index:10;
 		
 	// Container for each bottle
@@ -73,6 +71,8 @@ body {
 				    border-bottom: 1px solid rgba(0,0,0,1);
 				}
 			}
+
+
 			
 			// Create the bottle main body
 			.bottle-body {
@@ -133,15 +133,8 @@ body {
 						width:100%;
 						text-align: center;
 						color:gold;
-
 					}
-					
 				}
-			}
-			
-			//When mousedown / active, animate a bottle falling
-			&:active {
-				animation: bottle-fall 2s both;
 			}
 		}
 	}
@@ -149,9 +142,7 @@ body {
 
 	// Create the brick wall
 	.wall-container {
-		position:absolute;
-		bottom:200px;
-		left:0;
+
 		width:100%;
 		box-shadow:-40px 100px 25px 1px rgba(0,0,0, 0.6);
 	}
@@ -178,21 +169,21 @@ body {
 	}
 }
 
-
-// simple animation to knock a bottle.
-@keyframes bottle-fall {
-	from {
-		transform:translate(0px, 50px) rotateZ(10deg);
-	}
-	
-
-	to {
-		transform:translate(0px, 500px) rotateZ(90deg);
-	}
-}
-
 @media screen and (max-width:1268px){
 	.bottle-container {
 		display:flex;
 	}
+}
+
+.fallen {
+    position: relative;
+	top: 27.5vw;
+	transform: rotate(90deg);
+
+	& .bottle-body::after {
+		margin-top: 50px;
+		left:50px;
+		transform:rotate(-90deg);
+	}
+
 }
